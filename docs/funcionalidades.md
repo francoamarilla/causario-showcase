@@ -44,6 +44,7 @@ ABM de clientes con búsqueda. Desde las partes del portal se puede crear o vinc
 Biblioteca de modelos del estudio por categoría, con importación desde Word. Los datos del expediente, cliente y abogado se completan solos.
 
 ## Completar un modelo
+
 ![Completar modelo](../assets/capturas/10-completar-modelo.png)
 
 [Ver el recorrido en video](../assets/capturas/completar-modelo.mp4).

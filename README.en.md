@@ -12,7 +12,7 @@ Practice management system for small law firms (1 to 5 people) that pulls update
 
 ## Links
 
-**[Live demo]([COMPLETAR: demo URL])** · **[Video (2 min)]([COMPLETAR: video URL])** · [Contact](#contact)
+**[Live demo](https://francoamarilla.github.io/causario-demo/)** · [Contact](#contact)
 
 ![Home screen](assets/capturas/01-inicio.png)
 
@@ -93,6 +93,6 @@ The source repository is private because the product will be commercialized. I a
 
 ## Contact
 
-- GitHub: [COMPLETAR: GitHub URL]
-- LinkedIn: [COMPLETAR: LinkedIn URL]
-- Email: [COMPLETAR: contact email]
+- GitHub: https://github.com/francoamarilla
+- LinkedIn: https://www.linkedin.com/in/franco-maximiliano-amarilla/
+- Email: franco24amarilla@gmail.com

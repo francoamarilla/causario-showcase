@@ -12,7 +12,7 @@ Sistema de gestión para estudios jurídicos chicos (1 a 5 personas) que trae so
 
 ## Enlaces
 
-**[Demo en vivo]([COMPLETAR: URL de la demo])** · **[Video (2 min)]([COMPLETAR: URL del video])** · [Contacto](#contacto)
+**[Demo en vivo](https://francoamarilla.github.io/causario-demo/)** · [Contacto](#contacto)
 
 ![Pantalla de inicio](assets/capturas/01-inicio.png)
 

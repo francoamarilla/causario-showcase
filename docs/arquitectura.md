@@ -92,5 +92,3 @@ flowchart LR
     PC1 & PC2 & PC3 --> PROXY --> WEB
     BK -->|copia fuera del servidor| S3[(Almacenamiento externo)]
 ```
-
-[COMPLETAR: confirmar cuántas PCs tienen instalada la app de escritorio en el piloto; el diagrama es ilustrativo]

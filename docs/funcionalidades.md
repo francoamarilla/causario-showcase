@@ -45,11 +45,9 @@ Biblioteca de modelos del estudio por categoría, con importación desde Word. L
 
 ## Completar un modelo
 
-https://github.com/user-attachments/assets/854582ce-538b-42af-9958-297f768c571f
-
 ![Completar modelo](../assets/capturas/10-completar-modelo.png)
 
-[Ver el recorrido en video](../assets/capturas/completar-modelo.mp4).
+https://github.com/user-attachments/assets/854582ce-538b-42af-9958-297f768c571f
 
 Los campos a mano se completan uno por uno viendo el escrito. Lo que falta queda marcado en rojo. El resultado se guarda como documento del expediente o se descarga en Word.
 

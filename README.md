@@ -93,6 +93,6 @@ El repositorio del código es privado porque el producto se va a comercializar. 
 
 ## Contacto
 
-- GitHub: [COMPLETAR: URL de GitHub]
-- LinkedIn: [COMPLETAR: URL de LinkedIn]
-- Mail: [COMPLETAR: mail de contacto]
+- GitHub: https://github.com/francoamarilla
+- LinkedIn: https://www.linkedin.com/in/franco-maximiliano-amarilla/
+- Mail: franco24amarilla@gmail.com

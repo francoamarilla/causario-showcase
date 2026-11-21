@@ -1,6 +1,6 @@
 # Causario
 
-Sistema de gestión para estudios jurídicos chicos (1 a 5 personas) que trae solo las novedades de los portales judiciales.
+Sistema integral de gestión para estudios jurídicos que centraliza expedientes, clientes, agenda y modelos de escritos, incorporando la sincronización automatizada de movimientos judiciales mediante una arquitectura híbrida de escritorio y nube.
 
 ![Java 21](https://img.shields.io/badge/Java-21-informational)
 ![Spring Boot 3.5](https://img.shields.io/badge/Spring%20Boot-3.5-informational)
@@ -53,6 +53,7 @@ Detalle por pantalla en [docs/funcionalidades.md](docs/funcionalidades.md).
 | App de escritorio | Electron (Windows), instalador con actualización automática |
 | Tests | JUnit 5, Testcontainers, WireMock, GreenMail, Vitest |
 | Despliegue | Docker, Coolify, nginx, backups cifrados |
+| CI/CD | GitHub Actions, pruebas automatizadas, instaladores Windows y actualizaciones automáticas |
 
 ## Arquitectura
 
@@ -65,7 +66,7 @@ flowchart LR
     P -->|solo lectura| X[Portal judicial]
 ```
 
-Más detalle en [docs/arquitectura.md](docs/arquitectura.md).
+Más detalle en [Arquitectura](docs/arquitectura.md) y [CI/CD y distribución](docs/ci-cd.md).
 
 ## Decisiones técnicas destacadas
 
@@ -92,6 +93,8 @@ Usé IA como asistente de desarrollo. Las decisiones de producto y de arquitectu
 El repositorio del código es privado porque el producto se va a comercializar. Puedo mostrarlo y recorrerlo en una entrevista.
 
 ## Contacto
+
+- Portfolio: https://francoamarilla.github.io/portfolio/
 
 - GitHub: https://github.com/francoamarilla
 - LinkedIn: https://www.linkedin.com/in/franco-maximiliano-amarilla/

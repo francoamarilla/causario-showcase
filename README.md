@@ -1,101 +1,101 @@
 # Causario
 
-Sistema integral de gestión para estudios jurídicos que centraliza expedientes, clientes, agenda y modelos de escritos, incorporando la sincronización automatizada de movimientos judiciales mediante una arquitectura híbrida de escritorio y nube.
+Legal practice management platform that centralizes cases, clients, schedules and legal document templates, with automated synchronization of judicial case updates through a hybrid desktop and cloud architecture.
 
 ![Java 21](https://img.shields.io/badge/Java-21-informational)
 ![Spring Boot 3.5](https://img.shields.io/badge/Spring%20Boot-3.5-informational)
 ![Angular 22](https://img.shields.io/badge/Angular-22-informational)
 ![PostgreSQL 16](https://img.shields.io/badge/PostgreSQL-16-informational)
-![Estado](https://img.shields.io/badge/estado-en%20producci%C3%B3n%20%E2%80%94%20piloto-success)
+![Status](https://img.shields.io/badge/status-in%20production%20%E2%80%94%20pilot-success)
 
-[English version](README.en.md)
+[Versión en español](README.es.md)
 
-## Enlaces
+## Links
 
-**[Demo en vivo](https://francoamarilla.github.io/causario-demo/)** · [Contacto](#contacto)
+**[Live demo](https://francoamarilla.github.io/causario-demo/)** · [Contact](#contact)
 
-![Pantalla de inicio](assets/capturas/01-inicio.png)
+![Home screen](assets/capturas/01-inicio.png)
 
-## El problema
+## The problem
 
-Un estudio chico suele trabajar con carpetas de Drive y planillas de Excel. Para saber si una causa tuvo novedades, alguien tiene que entrar al portal del Poder Judicial, revisar expediente por expediente y abrir las cédulas. Los vencimientos viven en otra planilla, aparte de lo que pasa en el portal. Si nadie revisa a tiempo, se pierde un plazo.
+A small firm usually works with Drive folders and Excel sheets. To know whether a case has news, someone must log into the court portal, check each case and open the notifications. Deadlines live in a separate spreadsheet, apart from what happens in the portal. If nobody checks in time, a deadline is missed.
 
-## Qué hace
+## What it does
 
-| Funcionalidad | Beneficio |
+| Feature | Benefit |
 |---|---|
-| Sincronización con la Extranet del Poder Judicial de Córdoba (solo lectura) | Las operaciones y cédulas nuevas llegan solas; nadie entra al portal a revisar. |
-| Inicio con novedades, vencimientos de la semana y causas sin movimiento | Se ve en una pantalla qué requiere atención hoy. |
-| Agenda de vencimientos, audiencias y tareas | Cálculo del plazo en días hábiles según el calendario judicial de cada sede. |
-| Aviso diario por mail | Cada persona recibe lo suyo: sus vencimientos y las novedades de sus causas. |
-| Expedientes, clientes y partes | Todo en un lugar, con el vínculo entre causa y cliente. |
-| Línea de tiempo del expediente | Operaciones del portal y movimientos internos del estudio juntos. |
-| Documentos y modelos de escritos | Escritos con datos del expediente completados automáticamente, con exportación a Word. |
-| Permisos por persona | El estudio decide quién ve todo y quién ve solo lo suyo. |
+| Read-only sync with the Córdoba Judiciary portal | New case operations and notifications arrive on their own. |
+| Home screen: news, this week's deadlines, idle cases | One screen shows what needs attention today. |
+| Agenda of deadlines, hearings and tasks | Deadlines computed in business days using each court's judicial calendar. |
+| Daily email digest | Each person gets their own deadlines and case news. |
+| Cases, clients and parties | Everything in one place, with case-client links. |
+| Case timeline | Portal operations and the firm's internal entries together. |
+| Documents and brief templates | Briefs auto-filled with case data, exportable to Word. |
+| Per-person permissions | The firm decides who sees everything and who sees only their own work. |
 
-Detalle por pantalla en [docs/funcionalidades.md](docs/funcionalidades.md).
+See [Features and screenshots](docs/en/features.md) for a screen-by-screen walkthrough.
 
-## Estado del proyecto
+## Project status
 
-- Primer commit del repositorio: 30/09/2026.
-- Piloto en producción desde el 13/10/2026, con 3 personas de un estudio jurídico de Córdoba.
-- Integración con Córdoba funcionando. La integración con el PJN está en el roadmap y todavía no está implementada.
-- Desarrollado en solitario.
+- First commit in the repository: 2026-09-30.
+- Pilot in production since 2026-10-13, with 3 people at a law firm in Córdoba, Argentina.
+- Córdoba integration works. The PJN (federal courts) integration is on the roadmap and not implemented yet.
+- Built solo.
 
 ## Stack
 
-| Capa | Tecnología |
+| Layer | Technology |
 |---|---|
 | Backend | Java 21, Spring Boot 3.5, Spring Security + JWT, Spring Data JPA (Hibernate 6) |
-| Base de datos | PostgreSQL 16, migraciones con Flyway, Row Level Security |
-| Frontend | Angular 22 (componentes standalone), Angular Material, TypeScript |
-| Integración con portales | Agente en Java; Playwright solo para el login, cliente HTTP para las consultas |
-| App de escritorio | Electron (Windows), instalador con actualización automática |
+| Database | PostgreSQL 16, Flyway migrations, Row Level Security |
+| Frontend | Angular 22 (standalone components), Angular Material, TypeScript |
+| Portal integration | Java agent; Playwright for login only, plain HTTP client for queries |
+| Desktop app | Electron (Windows), installer with auto-update |
 | Tests | JUnit 5, Testcontainers, WireMock, GreenMail, Vitest |
-| Despliegue | Docker, Coolify, nginx, backups cifrados |
-| CI/CD | GitHub Actions, pruebas automatizadas, instaladores Windows y actualizaciones automáticas |
+| Deployment | Docker, Coolify, nginx, encrypted backups |
+| CI/CD | GitHub Actions, automated tests, Windows installers and automatic updates |
 
-## Arquitectura
+## Architecture
 
 ```mermaid
 flowchart LR
-    N[Navegador<br/>Angular] -->|HTTPS + JWT| A[API<br/>Spring Boot]
+    N[Browser<br/>Angular] -->|HTTPS + JWT| A[API<br/>Spring Boot]
     A --> D[(PostgreSQL<br/>RLS)]
-    W[Worker<br/>mails, calendario] --> D
-    P[App de escritorio<br/>agente en la PC del estudio] -->|token de PC| A
-    P -->|solo lectura| X[Portal judicial]
+    W[Worker<br/>email, calendar] --> D
+    P[Desktop app<br/>agent on the firm's PC] -->|PC token| A
+    P -->|read-only| X[Court portal]
 ```
 
-Más detalle en [Arquitectura](docs/arquitectura.md) y [CI/CD y distribución](docs/ci-cd.md).
+More in [Architecture](docs/en/architecture.md) and [CI/CD and distribution](docs/en/ci-cd.md).
 
-## Decisiones técnicas destacadas
+## Key technical decisions
 
-- **Aislamiento entre estudios en la base**, con Row Level Security y claves foráneas compuestas, además del filtro de la aplicación.
-- **El portal lo consultan las PCs del estudio**, con su propia IP, y la nube nunca toca el portal.
-- **Solo lectura y lista blanca de endpoints**: no se presenta nada y no se evade ningún captcha.
-- **Los ids del portal cambian cada día**, así que las novedades se deduplican por número de expediente y de operación.
+- **Tenant isolation in the database**, with Row Level Security and composite foreign keys on top of application-level filtering.
+- **The firm's own PCs query the portal**, from the firm's IP; the cloud never touches the portal.
+- **Read-only with an endpoint allowlist**: nothing is ever filed and no captcha is bypassed.
+- **Portal ids change daily**, so updates are deduplicated by case and operation number.
 
-Todas, con contexto y alternativas, en [docs/decisiones.md](docs/decisiones.md).
+Full context and alternatives in [Technical decisions](docs/en/technical-decisions.md).
 
-## Mi rol
+## My role
 
-Hice todo el proyecto en solitario:
+I built the whole project on my own:
 
-- Relevamiento con la abogada del estudio piloto y definición de las funcionalidades.
-- Diseño de la arquitectura y del modelo de datos.
-- Backend, frontend y app de escritorio.
-- Instalación, despliegue y soporte del piloto.
+- Requirements gathering with the pilot firm's lawyer.
+- Architecture and data model design.
+- Backend, frontend and desktop app.
+- Deployment and pilot support.
 
-Usé IA como asistente de desarrollo. Las decisiones de producto y de arquitectura son mías.
+I used AI as a development assistant. Product and architecture decisions are mine.
 
-## Código fuente
+## Source code
 
-El repositorio del código es privado porque el producto se va a comercializar. Puedo mostrarlo y recorrerlo en una entrevista.
+The source repository is private because the product will be commercialized. I am happy to walk through the code in an interview.
 
-## Contacto
+## Contact
 
 - Portfolio: https://francoamarilla.github.io/portfolio/
 
 - GitHub: https://github.com/francoamarilla
 - LinkedIn: https://www.linkedin.com/in/franco-maximiliano-amarilla/
-- Mail: franco24amarilla@gmail.com
+- Email: franco24amarilla@gmail.com
